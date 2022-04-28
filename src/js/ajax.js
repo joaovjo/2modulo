@@ -4,8 +4,12 @@ window.onload = () => {
         evento.preventDefault();
         const formdata = new FormData(formulario);
         fetch("ajax.php", {
-            "method":formulario.getAttribute("method"),
-            "body":formdata
-        })
+            "body": formdata,
+            "method": formulario.getAttribute("method")
+        }).then((resposta) => {
+            resposta.text();
+        }).then((texto) => {
+            console.log(texto);
+        });
     };
 };
